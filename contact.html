@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | 株式会社YUYU</title>
+    <meta name="description" content="株式会社YUYUへのお問い合わせフォームです。リネンサプライ、清掃業務に関するご相談、お見積りなどお気軽にお問い合わせください。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0369a1">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-900 bg-white selection:bg-primary-100 selection:text-primary-900">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-slate-100/50 shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-4 group">
+                <div class="relative">
+                    <img src="assets/logo.png" alt="YUYU Logo" class="h-12 w-12 object-contain shadow-sm rounded-lg group-hover:scale-105 transition-transform">
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-xl font-bold tracking-tight text-slate-900 leading-tight">株式会社YUYU</span>
+                    <span class="text-[10px] text-slate-400 font-bold tracking-[0.2em] uppercase">Linen Supply & Cleaning</span>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="lg:hidden p-2 text-slate-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="index.html#about" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">強み</a>
+                <a href="index.html#services" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">事業内容</a>
+                <a href="index.html#company" class="text-sm font-medium text-slate-600 hover:text-primary-600 transition-colors">会社概要</a>
+                <a href="contact.html" class="px-5 py-2.5 bg-primary-700 text-white text-sm font-semibold rounded-full hover:bg-primary-800 transition-all shadow-lg shadow-primary-200">
+                    お問い合わせ
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-100 p-6 shadow-xl">
+            <nav class="flex flex-col gap-4">
+                <a href="index.html#about" class="text-lg font-medium text-slate-600">強み</a>
+                <a href="index.html#services" class="text-lg font-medium text-slate-600">事業内容</a>
+                <a href="index.html#company" class="text-lg font-medium text-slate-600">会社概要</a>
+                <a href="contact.html" class="mt-2 text-center py-3 bg-primary-700 text-white font-semibold rounded-xl">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-24 bg-slate-50 min-h-screen">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h1 class="font-heading text-4xl md:text-5xl font-bold text-slate-900 mb-6">お問い合わせ</h1>
+                    <p class="text-slate-500 text-lg">
+                        サービスに関するご相談や、お見積りのご依頼など、<br class="hidden md:block">
+                        以下のフォームよりお気軽にお問い合わせください。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 p-8 md:p-12 border border-slate-100" data-aos="fade-up" data-aos-delay="100">
+                    <form action="#" method="POST" id="contact-form">
+                        <div class="grid gap-8">
+                            <!-- Company Name -->
+                            <div>
+                                <label for="company-name" class="block text-sm font-bold text-slate-700 mb-2">貴社名 <span class="text-slate-400 font-normal">（任意）</span></label>
+                                <input type="text" id="company-name" name="company" placeholder="株式会社〇〇" 
+                                    class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 transition-all form-input">
+                            </div>
+
+                            <!-- Name -->
+                            <div>
+                                <label for="full-name" class="block text-sm font-bold text-slate-700 mb-2">お名前 <span class="text-red-500">*</span></label>
+                                <input type="text" id="full-name" name="name" required placeholder="山田 太郎" 
+                                    class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 transition-all form-input">
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-bold text-slate-700 mb-2">メールアドレス <span class="text-red-500">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="example@yuyu-mgt.com" 
+                                    class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 transition-all form-input">
+                            </div>
+
+                            <!-- Phone -->
+                            <div>
+                                <label for="phone" class="block text-sm font-bold text-slate-700 mb-2">電話番号 <span class="text-red-500">*</span></label>
+                                <input type="tel" id="phone" name="phone" required placeholder="03-6820-5181" 
+                                    class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 transition-all form-input">
+                            </div>
+
+                            <!-- Content -->
+                            <div>
+                                <label for="message" class="block text-sm font-bold text-slate-700 mb-2">お問い合わせ内容 <span class="text-red-500">*</span></label>
+                                <textarea id="message" name="message" required rows="6" placeholder="お問い合わせ内容をご記入ください" 
+                                    class="w-full px-6 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-slate-900 placeholder:text-slate-400 transition-all form-input resize-none"></textarea>
+                            </div>
+
+                            <div class="pt-4">
+                                <button type="submit" class="w-full py-5 bg-primary-700 text-white font-bold rounded-2xl hover:bg-primary-800 transition-all shadow-lg shadow-primary-200 flex items-center justify-center gap-3 group">
+                                    <span>送信内容を確認する</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </button>
+                                <p class="mt-6 text-center text-xs text-slate-400 leading-relaxed">
+                                    ※現在はシステム調整中のため、フォーム送信は準備中です。<br>
+                                    お急ぎの方はお電話（03-6820-5181）にてお問い合わせください。
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Privacy Policy Note -->
+                <p class="mt-12 text-center text-sm text-slate-500">
+                    ご入力いただいた情報は、お問い合わせへの回答およびサービスのご案内にのみ利用いたします。
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-slate-50">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="YUYU Logo" class="h-8 w-8 opacity-80">
+                <span class="font-heading text-xl font-bold text-slate-400">株式会社YUYU</span>
+            </div>
+            
+            <nav class="flex gap-8 text-sm font-medium text-slate-400">
+                <a href="index.html#about" class="hover:text-primary-600 transition-colors">強み</a>
+                <a href="index.html#services" class="hover:text-primary-600 transition-colors">事業内容</a>
+                <a href="index.html#company" class="hover:text-primary-600 transition-colors">会社概要</a>
+            </nav>
+            
+            <p class="text-slate-400 text-sm">
+                &copy; 2026 YUYU Inc. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800,
+            offset: 100
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission (Dummy)
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('お問い合わせフォームは現在準備中です。お電話にてお問い合わせください。');
+        });
+    </script>
+</body>
+</html>
